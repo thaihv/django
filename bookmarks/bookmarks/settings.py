@@ -25,7 +25,7 @@ SECRET_KEY = '8hh)0sdv46p7d2!5*ys=wywzxuh4*om8k0_te1=jphg&xcu62z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', '013a614e.ngrok.io']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'images.apps.ImagesConfig',
+    'sorl.thumbnail',
     
 ]
 
@@ -150,3 +152,5 @@ SOCIAL_AUTH_TWITTER_SECRET = '' # Twitter Consumer Secret
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '10783498797-1puadu6qlpv8o3p38g9fip2619vbhmj1.apps.googleusercontent.com' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y0A1DvvBVIWF8jvylq824kxP' # Google Consumer Secret
+
+THUMBNAIL_DEBUG = True
