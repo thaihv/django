@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social_django',
     'images.apps.ImagesConfig',
     'sorl.thumbnail',
+    'actions.apps.ActionsConfig',
     
 ]
 
@@ -154,3 +155,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '10783498797-1puadu6qlpv8o3p38g9fip2619vbhmj1.ap
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Y0A1DvvBVIWF8jvylq824kxP' # Google Consumer Secret
 
 THUMBNAIL_DEBUG = True
+
+from django.urls import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
