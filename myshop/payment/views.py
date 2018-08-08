@@ -1,11 +1,14 @@
-import braintree
-from django.shortcuts import render, redirect, get_object_or_404 
-from orders.models import Order 
-from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
-from django.conf import settings
-import weasyprint
 from io import BytesIO
+
+import braintree
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.shortcuts import render, redirect, get_object_or_404 
+from django.template.loader import render_to_string
+import weasyprint
+
+from orders.models import Order 
+
 
 def payment_process(request):
     order_id = request.session.get('order_id')
