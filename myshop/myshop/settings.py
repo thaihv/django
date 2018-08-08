@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'sorl.thumbnail',
     'rosetta',
     'parler',
     'localflavor',
@@ -180,3 +181,8 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+# redis config
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1

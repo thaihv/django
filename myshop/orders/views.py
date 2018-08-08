@@ -14,6 +14,8 @@ from .models import Order
 from .models import OrderItem
 from .tasks import order_created
 
+from shop.models import Product
+from shop.recommender import Recommender
 
 def order_create(request):
     cart = Cart(request)
@@ -25,12 +27,13 @@ def order_create(request):
                 order.coupon = cart.coupon
                 order.discount = cart.coupon.discount
             order.save()
-            
+            r = Recommender()
             for item in cart:
                 OrderItem.objects.create(order=order,
                                          product=item['product'],
                                          price=item['price'],
                                          quantity=item['quantity'])
+            r.products_bought([item['product'] for item in cart])
             # clear the cart
             cart.clear()
             # launch asynchronous task
